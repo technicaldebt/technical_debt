@@ -5,10 +5,10 @@
 
 Gem::Specification.new do |s|
   s.name = %q{techincaldebt}
-  s.version = "0.1.0"
+  s.version = "0.1.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = ["Chris Herring", "Jeremy Grant","Gareth Stokes","Carl Woodward"]
+  s.authors = ["Chris Herring", "Jeremy Grant", "Gareth Stokes", "Carl Woodward"]
   s.date = %q{2009-08-24}
   s.description = %q{Gem to push details of technical debt to technicaldebt.us}
   s.email = %q{technicaldebt@gmail.com}
@@ -22,18 +22,20 @@ Gem::Specification.new do |s|
      "LICENSE",
      "README.rdoc",
      "Rakefile",
+     "VERSION",
      "bin/debtify",
      "bin/senddebt",
      "lib/technical_debt.rb",
      "spec/git_diffs.rb",
      "spec/spec_helper.rb",
-     "spec/technical_debt_spec.rb"
+     "spec/technical_debt_spec.rb",
+     "techincaldebt.gemspec"
   ]
   s.homepage = %q{http://github.com/techincaldebt/technical_debt}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.4}
-  s.summary = %q{Sweet gemness}
+  s.summary = %q{Gem to push details of technical debt to technicaldebt.us}
   s.test_files = [
     "spec/git_diffs.rb",
      "spec/spec_helper.rb",
