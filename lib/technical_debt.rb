@@ -112,13 +112,13 @@ class TechnicalDebt
     File.open(log_file,'r') { |f| f.read.split(",")}
   end
   
+  #DEBT 1h Just a sanity check maybe a reality check
   def log_file
     "#{project}/.git/technical_debt"
   end
   
-  #DEBT 1h Just a sanity check maybe a reality check
   def send_to_server(debt)
-    Net::HTTP.post_form(URI.parse("http://techdebt.dev/transactions"),  { 'transaction[message]' => stripped_debt_line(debt), 'transaction[sha]' => last_commit_sha, 'git_token' => get_git_token, 'kind' => 'debt' })
+    Net::HTTP.post_form(URI.parse("http://technicaldebt.r09.railsrumble.com/transactions"),  { 'transaction[message]' => stripped_debt_line(debt), 'transaction[sha]' => last_commit_sha, 'git_token' => get_git_token, 'kind' => 'debt' })
   end
   
   def stripped_debt_line(debt_line)
