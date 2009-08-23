@@ -1,0 +1,11 @@
+#!/usr/bin/env ruby
+$LOAD_PATH.unshift File.dirname(__FILE__) + '/../lib'
+
+require 'technical_debt'
+
+if ARGV[0]
+  debt = TechnicalDebt.new(ARGV)
+  debt.debtify
+else
+  puts "You need to pass a project deirectory to set up the push to technical Debt"
+end
