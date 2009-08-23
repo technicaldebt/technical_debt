@@ -225,7 +225,7 @@ describe TechnicalDebt,"strip # DEBT from debt lines" do
   end
   
   it "should not start with the word DEBT" do
-    @techdebt.stripped_debt_line(@techdebt.debt_lines_only.first).should_not include("+ #DEBT")
+    @techdebt.stripped_debt_line("+  #DEBT 1 hour Just a sanity check maybe a reality check, booooo, sigh").should_not include("+ #DEBT")
   end
   
 end

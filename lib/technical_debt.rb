@@ -85,10 +85,9 @@ class TechnicalDebt
   def connection_exists?
     check_connection ? true : false
   end
-
-  #DEBT 1 hour Just a sanity check
+  
   def register_debt
-    if git_token_exists? && connection_exists?
+    if git_token_exists? && connection_exists? && !debt_lines_with_logged.blank?
       push_to_technical_debt
     else
       log_debt
@@ -117,12 +116,13 @@ class TechnicalDebt
     "#{project}/.git/technical_debt"
   end
   
+  #DEBT 1h Just a sanity check maybe a reality check
   def send_to_server(debt)
-    Net::HTTP.post_form(URI.parse("http://techdebt.dev/transactions"), {:message => stripped_debt_line(debt), :sha => last_commit_sha, :git_token => get_git_token })
+    Net::HTTP.post_form(URI.parse("http://techdebt.dev/transactions"),  { 'transaction[message]' => stripped_debt_line(debt), 'transaction[sha]' => last_commit_sha, 'git_token' => get_git_token, 'kind' => 'debt' })
   end
   
   def stripped_debt_line(debt_line)
-    debt_line[regex_debt_matcher, 1]
+    debt_line[/^\+\s*#\s*[dD][eE][bB][tT]\s+(.*)$/, 1]
   end
   
   def debtify
