@@ -1,6 +1,22 @@
 = techincaldebt
 
-Description goes here.
+This is a gem to submit your technical debt via git post commit hook to http://technicaldebt.r09.railsrumble.com
+How can I do this? Well all you need to do is go to http://technicaldebt.r09.railsrumble.com/account and get your token then install it:
+
+git config --global technicaldebt.token your_token_here
+
+Then install the gem:
+
+gem source --add http://gems.github.com
+sudo gem install technicaldebt-technicaldebt
+
+Then you have a spiffy git post commit hook that will submit your #DEBT comments,
+
+#DEBT 3 hours - refactor the index action on movies_controller to be 8 lines or less 
+
+from your code to the application for tracking. But Git is distributed, I may be offline on a boat, train, plane, what then???
+
+Well fear not!!! technicaldebt will log your debt messages and submit them next time you commit and you online.
 
 == Note on Patches/Pull Requests
  
@@ -15,4 +31,4 @@ Description goes here.
 
 == Copyright
 
-Copyright (c) 2009 Jeremy Grant. See LICENSE for details.
+Copyright (c) 2009 Technical Debt. See LICENSE for details.
