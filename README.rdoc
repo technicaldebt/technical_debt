@@ -8,7 +8,10 @@ git config --global technicaldebt.token your_token_here
 Then install the gem:
 
 gem source --add http://gems.github.com
-sudo gem install technicaldebt-technicaldebt
+
+BE CAREFUL, THERE IS A TYPO THAT WILL BE FIXED IN THE GEM NAME
+
+sudo gem install technicaldebt-techincaldebt
 
 Then you have a spiffy git post commit hook that will submit your #DEBT comments,
 
